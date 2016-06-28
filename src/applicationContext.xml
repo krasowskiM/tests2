@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alert1" class="Alert">
+        <property name="type" value="REMONT"></property>
+        <property name="powerDrop" value="50"></property>
+        <property name="startDate" value="21/05/2016"></property>
+        <property name="finishDate" value="30/06/2016"></property>
+    </bean>
+    <bean id="alert2" class="Alert">
+        <property name="type" value="KROTSZA_ZMIANA"></property>
+        <property name="powerDrop" value="10"></property>
+        <property name="startDate" value="22/04/2016"></property>
+        <property name="finishDate" value="31/05/2016"></property>
+    </bean>
+
+    <bean id="powSt1" class="PStation">
+        <property name="name" value="BELCHATOW"></property>
+        <property name="power" value="200"></property>
+    </bean>
+    <bean id="powSt2" class="PStation">
+        <property name="name" value="KOZIENICE"></property>
+        <property name="power" value="100"></property>
+    </bean>
+
+    <bean id="powerStationManager" class="PStationManager">
+        <property name="pStations">
+            <map>
+                <entry key-ref="powSt1" value-ref="alert1"></entry>
+                <entry key-ref="powSt2" value-ref="alert2"></entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>
