@@ -1,3 +1,5 @@
+package maciekSpring;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -5,7 +7,6 @@ import org.springframework.core.io.Resource;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) throws ParseException{
-        Resource res = new ClassPathResource("applicationContext.xml");
+        Resource res = new ClassPathResource("maciekSpring/applicationContext.xml");
         BeanFactory factory = new XmlBeanFactory(res);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         //Calendar calendar = Calendar.getInstance();

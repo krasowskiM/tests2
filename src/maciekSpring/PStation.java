@@ -1,3 +1,5 @@
+package maciekSpring;
+
 /**
  * Created by Maciek on 2016-06-27.
  */

@@ -1,3 +1,5 @@
+package maciekSpring;
+
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Iterator;
@@ -10,7 +12,7 @@ import java.util.Set;
 public class PStationManager {
     private int id;
     private String name;
-    private Map<PStation,Alert> pStations;
+    private static Map<PStation,Alert> pStations;
 
     public int getId() {
         return id;
@@ -36,7 +38,7 @@ public class PStationManager {
         this.pStations = pStations;
     }
 
-    public int countInstalledPower(Date queryDate){
+    public static int countInstalledPower(Date queryDate){
         Set<Map.Entry<PStation,Alert>> set=pStations.entrySet();
         Iterator<Map.Entry<PStation,Alert>> itr=set.iterator();
         int sum=0;
@@ -46,9 +48,6 @@ public class PStationManager {
             PStation ps = entry.getKey();
             Alert al = entry.getValue();
             try {
-                Date date1 = al.returnFinishDate();
-                Date date2 = al.returnStartDate();
-
                 if (queryDate.before(al.returnStartDate()) || queryDate.after(al.returnFinishDate())) {
                     sum += ps.getPower();
                 }
